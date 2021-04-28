@@ -1,4 +1,4 @@
-package chapterOne.one;
+package chapterone.one;
 
 public class Test {
 	private static long COUNT = 0;

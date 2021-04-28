@@ -1,4 +1,4 @@
-package chapterOne.two;
+package chapterone.two;
 
 public class Test {
 
