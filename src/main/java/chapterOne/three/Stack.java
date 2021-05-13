@@ -68,6 +68,26 @@ public class Stack<Item> implements Iterable<Item> {
 		Item item = first.item;
 		return item;
 	}
+	
+	/**
+	 * K12
+	 * 注意栈的副本，顺序也要相同!
+	 * 方法中利用数组，修正顺序
+	 * @param that
+	 * @return
+	 */
+	public static Stack<String> copy(Stack<String> that) {
+		Stack<String> s = new Stack<String>();
+		String[] ss = new String[that.size()];
+		int index = 0;
+		for(String str : that) {
+			ss[index++] = str;
+		}
+		for (int i = index; i > 0; i--) {
+			s.push(ss[--index]);
+		}
+		return s;
+	}
 
 	public static void main(String[] args) {
 		Stack<String> s = new Stack<String>();
