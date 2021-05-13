@@ -59,6 +59,15 @@ public class Stack<Item> implements Iterable<Item> {
 			return item;
 		}
 	}
+	
+	/**
+	 * K7
+	 * @return
+	 */
+	public Item peek() {
+		Item item = first.item;
+		return item;
+	}
 
 	public static void main(String[] args) {
 		Stack<String> s = new Stack<String>();
