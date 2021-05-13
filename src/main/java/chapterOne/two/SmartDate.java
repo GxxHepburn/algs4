@@ -31,6 +31,24 @@ public class SmartDate {
 	}
 	
 	/**
+	 * K19
+	 * 字符串格式日期
+	 * @param date
+	 */
+	public SmartDate(String date) {
+		String[] fields = date.split("/");
+		int m = Integer.parseInt(fields[0]);
+		int d = Integer.parseInt(fields[1]);
+		int y = Integer.parseInt(fields[2]);
+		if (!judge(m, d, y)) {
+			throw new IllegalArgumentException("Argument illegal " + m + "/" + d + "/" + y);
+		}
+		this.month = m;
+		this.day = d;
+		this.year = y;
+	}
+	
+	/**
 	 * 判断SmartDate对象是否合法
 	 * @param that
 	 * @return
