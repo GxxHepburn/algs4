@@ -2,6 +2,9 @@ package chapterone.two;
 
 import java.util.Date;
 
+import chapterone.three.Queue;
+import edu.princeton.cs.algs4.StdIn;
+
 public class Transaction {
 
 	private final String who;
@@ -78,5 +81,31 @@ public class Transaction {
 			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * K17
+	 * @return
+	 */
+	public static Transaction[] readTransactions() {
+		Queue<String> queue = new Queue<String>();
+		String trans = "";
+		int t = 0;
+		while (!StdIn.isEmpty()) {
+			String tsstr = StdIn.readString();
+			if (++t % 3 == 0) {
+				trans += tsstr;
+				queue.enqueue(trans);
+				trans = "";
+			} else {
+				trans += tsstr + " ";
+			}
+		}
+		Transaction[] tses = new Transaction[queue.size()];
+		int index = 0;
+		for (String str : queue) {
+			tses[index++] = new Transaction(str);
+		}
+		return tses;
 	}
 }

@@ -1,5 +1,8 @@
 package chapterone.two;
 
+import chapterone.three.Bag;
+import edu.princeton.cs.algs4.StdIn;
+
 public class SmartDate {
 
 	private final int month;
@@ -231,5 +234,23 @@ public class SmartDate {
 			}
 		}
 		return sWeek;
+	}
+	
+	/**
+	 * K16
+	 * @return
+	 */
+	public static SmartDate[] readDates() {
+		Bag<String> bag = new Bag<String>();
+		while (!StdIn.isEmpty()) {
+			String dateString = StdIn.readString();
+			bag.add(dateString);
+		}
+		SmartDate[] dates = new SmartDate[bag.size()];
+		int index = 0;
+		for (String string : bag) {
+			dates[index++] = new SmartDate(string);
+		}
+		return dates;
 	}
 }
