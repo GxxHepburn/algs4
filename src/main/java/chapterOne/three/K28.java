@@ -2,7 +2,7 @@ package chapterone.three;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class K28<Item>{
+public class K28<Item> {
 
 	private static class Node<Item2> {
 		Item2 item;
