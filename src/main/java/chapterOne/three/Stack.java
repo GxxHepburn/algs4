@@ -88,6 +88,39 @@ public class Stack<Item> implements Iterable<Item> {
 		}
 		return s;
 	}
+	
+	/**
+	 * K24
+	 * 默认node是该链表中的一个节点
+	 * @param node
+	 */
+	public void removeAfter(Node node) {
+		if (node == null || node.next == null) {
+			return;
+		}
+		Node current = first;
+		while (current.next != null) {
+			if (current.item.equals(node.item)) {
+				break;
+			}
+		}
+		current.next = null;
+	}
+	
+	/**
+	 * K25
+	 * @param node
+	 * @param nodeAfter
+	 */
+	public void insertAfter(Node node, Node nodeAfter) {
+		if (node == null || nodeAfter == null) {
+			return;
+		}
+		nodeAfter.next = node.next;
+		node.next = nodeAfter;
+	}
+	
+	
 
 	public static void main(String[] args) {
 		Stack<String> s = new Stack<String>();

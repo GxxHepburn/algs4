@@ -5,14 +5,15 @@ import java.util.NoSuchElementException;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class K20<Item> implements Iterable<Item> {
-
+public class K26<Item> implements Iterable<Item> {
+	
 	private class Node {
 		Item item;
 		Node next;
 	}
 	
 	private Node first;
+	private Node last;
 	private int N;
 	
 	public boolean isEmpty() {
@@ -62,22 +63,31 @@ public class K20<Item> implements Iterable<Item> {
 
 	public Item delete(int k) {
 		Node current = first;
-		if (k == 0) {
-			Item item = first.item;
-			first = first.next;
-			N--;
-			return item;
-		}
 		for (int i = 1; i < this.size(); i++) {
-			if (i == k) {
+			if (i == k-1) {
 				Node kNode = current.next;
 				current.next = kNode.next;
 				N--;
 				return kNode.item;
 			}
-			current = current.next;
 		}
 		throw new NoSuchElementException("链表元素少于k个!");
+	}
+	
+	public void remove(String item) {
+		Node current = first;
+		while (current.next != null) {
+			if (current.next.item.equals(item)) {
+				current.next = current.next.next;
+				N--;
+			} else {
+				current = current.next;
+			}
+		}
+		if (first.item.equals(item)) {
+			first = first.next;
+			N--;
+		}
 	}
 	
 	@Override
@@ -92,15 +102,18 @@ public class K20<Item> implements Iterable<Item> {
 	}
 
 	public static void main(String[] args) {
-		K20<String> k20 = new K20<String>();
-		k20.push("1");
-		k20.push("2");
-		k20.push("3");
-		k20.push("4");
-		k20.push("5");
-		k20.push("6");
-		StdOut.println(k20);
-		k20.delete(5);
-		StdOut.println(k20);
+		K26<String> k26 = new K26<String>();
+		k26.push("1");
+		k26.push("1");
+		k26.push("1");
+		k26.push("2");
+		k26.push("1");
+		k26.push("1");
+		k26.push("1");
+		k26.push("1");
+		k26.push("1");
+		StdOut.println(k26);
+		k26.remove("1");
+		StdOut.println(k26);
 	}
 }
