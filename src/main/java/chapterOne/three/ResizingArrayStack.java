@@ -11,7 +11,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 		return N == 0;
 	}
 	
-	public int Size() {
+	public int size() {
 		return N;
 	}
 	
