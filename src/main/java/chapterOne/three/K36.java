@@ -2,7 +2,7 @@ package chapterone.three;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class K35 {
+public class K36 {
 
 	public static void main(String[] args) {
 		RandomQueue<Integer> randomQueue = new RandomQueue<Integer>();
@@ -19,10 +19,8 @@ public class K35 {
 		randomQueue.enqueue(11);
 		randomQueue.enqueue(12);
 		randomQueue.enqueue(13);
-		StdOut.println(randomQueue.sample());
 		StdOut.println(randomQueue);
 		StdOut.println(randomQueue);
-		StdOut.println(randomQueue.dequeue());
 		StdOut.println(randomQueue);
 	}
 }

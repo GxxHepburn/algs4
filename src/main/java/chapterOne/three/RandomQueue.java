@@ -83,7 +83,10 @@ public class RandomQueue<Item> implements Iterable<Item> {
 
 	@Override
 	public Iterator<Item> iterator() {
-		return new ReverseArrayIterator();
+		//	K35
+//		return new ReverseArrayIterator();
+		//	K36
+		return new RandomIterator();
 	}
 	
 	private class ReverseArrayIterator implements Iterator<Item> {
@@ -98,6 +101,35 @@ public class RandomQueue<Item> implements Iterable<Item> {
 		@Override
 		public Item next() {
 			return a[--i];
+		}
+	}
+	
+	private class RandomIterator implements Iterator<Item> {
+		
+		private Item[] items = (Item[]) new Object[N];
+		private int j = N;
+		
+		public RandomIterator() {
+			for (int i = 0; i < N; i++) {
+				items[i] = a[i];
+			}
+			for (int i = 0; i < N; i++) {
+				int r = i + StdRandom.uniform(N - i);
+				Item temp = items[i];
+				items[i] = items[r];
+				items[r] = temp;
+			}
+		}
+		
+		@Override
+		public boolean hasNext() {
+			
+			return j > 0;
+		}
+
+		@Override
+		public Item next() {
+			return items[--j];
 		}
 	}
 }
