@@ -14,6 +14,15 @@ public class Queue<Item> implements Iterable<Item> {
 		Node next;
 	}
 	
+	//	K41
+	public Queue(Queue<Item> queue) {
+		
+	}
+	
+	public Queue() {
+		super();
+	}
+	
 	public boolean isEmpty() {
 		return first == null;
 	}
