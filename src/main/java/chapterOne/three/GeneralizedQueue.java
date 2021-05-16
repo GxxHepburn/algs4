@@ -10,12 +10,14 @@ import java.util.NoSuchElementException;
  */
 
 /**
- * ----------------------------------------------
- * public class GeneralizedQueue<Item> implements Iterable<T>
+ * -------------------------------------------------------------
+ * public class GeneralizedQueue<Item> implements Iterable<Item>
+ * -------------------------------------------------------------
  * 	GeneralizedQueue()			创建一条空队列
  * 	boolean isEmpty()			队列是否为空
  * 	void insert(Item x)			添加一个元素
  * 	Item delete(int k)			删除并返回最早插入的第k个元素
+ * --------------------------------------------------------------
  *
  */
 
@@ -65,6 +67,9 @@ public class GeneralizedQueue<Item> implements Iterable<Item> {
 		}
 		a[N-1] = null;
 		N--;
+		if (N == a.length/4 && N > 0) {
+			resize(a.length / 2);
+		}
 		return item;
 	}
 	
