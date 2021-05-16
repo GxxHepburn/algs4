@@ -1,6 +1,9 @@
 package chapterone.three;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -15,8 +18,17 @@ public class Queue<Item> implements Iterable<Item> {
 	}
 	
 	//	K41
-	public Queue(Queue<Item> queue) {
-		
+	public Queue(Queue<Item> q) {
+		Queue<Item> result = new Queue<Item>();
+		int size =  q.size();
+		for(int i = 0; i < size; i++) {
+			Item item = q.dequeue();
+			q.enqueue(item);
+			result.enqueue(item);
+		}
+		this.first = result.first;
+		this.last = result.last;
+		this.N = result.size();
 	}
 	
 	public Queue() {
@@ -74,6 +86,17 @@ public class Queue<Item> implements Iterable<Item> {
 			current = current.next;
 			return item;
 		}
+	}
+	
+	@Override
+	public String toString() {
+		String s;
+		s = "Size: " + size() + "\n";
+		for (Item str : this) {
+			s += (str + " ");
+		}
+		s += "\n";
+		return s;
 	}
 
 	public static void main(String[] args) {

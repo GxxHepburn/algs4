@@ -15,6 +15,27 @@ public class Stack<Item> implements Iterable<Item> {
 	private Node first;
 	private int N;
 	
+	public Stack(Stack<Item> s) {
+		Stack<Item> result = new Stack<Item>();
+		int size = s.size();
+		Item[] temp = (Item[]) new Object[size];
+		Node current = s.first;
+		for (int i = 0; i < size; i++) {
+			Item item = current.item;
+			temp[i] = item;
+			current = current.next;
+		}
+		for (int i = size; i > 0; ) {
+			result.push(temp[--i]);
+		}
+		this.first = result.first;
+		this.N = result.size();
+	}
+	
+	public Stack() {
+		super();
+	}
+	
 	public boolean isEmpty() {
 		return first == null;
 	}
@@ -67,6 +88,17 @@ public class Stack<Item> implements Iterable<Item> {
 	public Item peek() {
 		Item item = first.item;
 		return item;
+	}
+	
+	@Override
+	public String toString() {
+		String s;
+		s = "Size: " + size() + "\n";
+		for (Item str : this) {
+			s += (str + " ");
+		}
+		s += "\n";
+		return s;
 	}
 	
 	/**
