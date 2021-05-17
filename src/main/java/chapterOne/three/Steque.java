@@ -66,6 +66,22 @@ public class Steque<Item> implements Iterable<Item> {
 		}
 		N++;
 	}
+	
+	/*
+	 * 	K47
+	 */
+	public void catenation(Steque<Item> lastSteque) {
+		Steque<Item> temp = new Steque<Item>();
+		int lenght = lastSteque.size();
+		for (int i = 0; i < lenght; i++) {
+			temp.push(lastSteque.pop());
+		}
+		for (int i = 0; i < lenght; i++) {
+			Item item = temp.pop();
+			push(item);
+			lastSteque.push(item);
+		}
+	}
 
 	@Override
 	public Iterator<Item> iterator() {

@@ -66,6 +66,15 @@ public class Queue<Item> implements Iterable<Item> {
 		return item;
 	}
 	
+	/*
+	 * 	K47
+	 */
+	public void catenation(Queue<Item> lastQueue) {
+		for (Item item : lastQueue) {
+			enqueue(item);
+		}
+	}
+	
 	@Override
 	public Iterator<Item> iterator() {
 		return new ListIterator();

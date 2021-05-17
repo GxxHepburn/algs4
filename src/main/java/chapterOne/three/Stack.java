@@ -59,6 +59,22 @@ public class Stack<Item> implements Iterable<Item> {
 		return item;
 	}
 	
+	/*
+	 * 	K47
+	 */
+	public void catenation(Stack<Item> lastStack) {
+		Stack<Item> temp = new Stack<Item>();
+		int length = lastStack.size();
+		for (int i = 0; i < length; i++) {
+			temp.push(lastStack.pop());
+		}
+		for (int i = 0; i < length; i++) {
+			Item item = temp.pop();
+			push(item);
+			lastStack.push(item);
+		}
+	}
+	
 	@Override
 	public Iterator<Item> iterator() {
 		return new ListIterator();
