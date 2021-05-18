@@ -1,5 +1,6 @@
 package chapterone.three;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 import edu.princeton.cs.algs4.StdIn;
@@ -83,14 +84,24 @@ public class Stack<Item> implements Iterable<Item> {
 	private class ListIterator implements Iterator<Item> {
 
 		private Node current = first;
+		/*
+		 * 	K50
+		 */
+		private int count = size();
 		
 		@Override
 		public boolean hasNext() {
+			if (count != size()) {
+				throw new ConcurrentModificationException("Stack was being modified!");
+			}
 			return current != null;
 		}
 
 		@Override
 		public Item next() {
+			if (count != size()) {
+				throw new ConcurrentModificationException("Stack was being modified!");
+			}
 			Item item = current.item;
 			current = current.next;
 			return item;
