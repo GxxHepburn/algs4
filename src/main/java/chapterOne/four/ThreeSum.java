@@ -22,7 +22,6 @@ public class ThreeSum {
 					arg1 = a[i];
 					arg2 = a[j];
 					sum = arg1 +  arg2;
-					StdOut.println(sum > Integer.MAX_VALUE ? true : false);
 					if (sum == -a[k]) {
 						cnt++;
 					}
