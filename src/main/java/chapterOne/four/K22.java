@@ -13,13 +13,13 @@ public class K22 {
 //		int[] b = {0, 1, 3, 9};
 //		StdOut.println(fibBinary2(b, 9));
 		
-		int[] c = new int[10000];
-		for (int i = 0; i < 10000; i++) {
+		int[] c = new int[100000];
+		for (int i = 0; i < 100000; i++) {
 			c[i] = i;
 		}
 		K22 k22 = new K22();
 		Stopwatch time = new Stopwatch();
-		StdOut.println(fibBinary2(c, 11000, k22) + " ctn: " + k22.cnt + " snt: " + k22.snt + " time: " + time.elapsedTime());
+		StdOut.println(fibBinary2(c, 110000, k22) + " ctn: " + k22.cnt + " snt: " + k22.snt + " time: " + time.elapsedTime());
 	}
 	
 	//	这样是错的,最坏情况并不是~lgN
