@@ -2,12 +2,9 @@ package chapterone.four;
 
 import edu.princeton.cs.algs4.StdOut;
 
-
 /**
  * ~1lgN
  * @author gxx
- * https://blog.csdn.net/weixin_34029949/article/details/94220533?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-3.control
- * https://blog.csdn.net/qq_40569107/article/details/100891014
  *
  */
 public class K34_lgN {
@@ -15,14 +12,14 @@ public class K34_lgN {
 	static int runTimes = 0;
 
 	public static void main(String[] args) {
-//		StdOut.println(findKey(1000, 991) + " cnt: " + runTimes);
+		StdOut.println(lgN(10000, 991) + " cnt: " + runTimes);
 		
-		int N = 10000;
+		int N = 10000000;
 		int max = 0;
 		int avg = 0;
 		int sum = 0;
 		for (int i = 1; i <= N; i++) {
-			findKey(N, i);
+			lgN(N, i);
 			int t = runTimes;
 			runTimes = 0;
 			max = Math.max(t, max);
@@ -32,38 +29,76 @@ public class K34_lgN {
 		StdOut.println("max: " + max + " sum: " + sum + " avg: " + avg);
 	}
 	
-	public static int findKey(int N, int key) {
-		int prevNum = 1;
-		int prevDiff = Math.abs(1 - key);
-		if (prevDiff == 0) {
-			return prevNum;
-		}
+	public static int lgN(int N, int key) {
 		int lo = 1;
 		int hi = N;
-		int nowNum = (lo + hi) / 2;
-		while (nowNum != key) {
-			runTimes++;
-			int nowDiff = Math.abs(nowNum - key);
-			if (nowDiff < prevDiff) {
-				if (nowNum > prevNum) {
-					lo = (prevNum + nowNum) / 2;
-				} else {
-					hi = (prevNum + nowNum) / 2;
-				}
-			} else if (nowDiff > prevDiff) {
-				if (nowNum > prevNum) {
-					hi = (prevNum + nowNum) / 2;
-				} else {
-					lo = (prevNum + nowNum) / 2;
-				}
-			}
-			prevDiff = nowDiff;
-			if ((lo + hi) / 2 == prevNum) {
-				hi += 2;
-			}
-			prevNum = nowNum;
-			nowNum = (lo + hi) / 2;
+		
+		int g1 = lo;
+		int g2 = hi;
+		
+		if (g1 == key) {
+			return g1;
 		}
-		return nowNum;
+		while (true) {
+			runTimes++;
+			if (g2 == key) {
+				return g2;
+			} else if (Math.abs(g1 - key) > Math.abs(g2 - key)) {
+				if (lo == farBoundary(lo, hi, g2)) {
+					if (lo == (lo + hi) / 2) {
+						lo++;
+					} else {
+						lo = (lo + hi) / 2;
+					}
+				} else {
+					if (hi == (lo + hi) / 2) {
+						hi--;
+					} else {
+						hi = (lo + hi) / 2;
+					}
+				}
+				g1 = g2;
+				g2 = nextGuess(lo, hi, g2);
+			} else if (Math.abs(g1 - key) < Math.abs(g2 - key)) {
+				if (lo == nearBoundary(lo, hi, g2)) {
+					if (lo == (lo + hi) / 2) {
+						lo++;
+					} else {
+						lo = (lo + hi) / 2;
+					}
+				} else {
+					if (hi == (lo + hi) / 2) {
+						hi--;
+					} else {
+						hi = (lo + hi) / 2;
+					}
+				}
+				g1 = g2;
+				g2 = nextGuess(lo, hi, g2);
+			} else {
+				g1 = g2;
+				g2 = (lo + hi) / 2;
+			}
+		}
+	}
+	
+	private static int nextGuess(int lo, int hi, int currentGuess) {
+		return lo + hi - currentGuess;
+	}
+	
+	private static int farBoundary(int lo, int hi, int guess) {
+		if (Math.abs(guess - lo) < Math.abs(guess - hi)) {
+			return hi;
+		} else {
+			return lo;
+		}
+	}
+	
+	private static int nearBoundary(int lo, int hi, int guess) {
+		if (Math.abs(guess - lo) < Math.abs(guess - hi)) {
+			return lo;
+		} else {
+			return hi;
+		}
 	}
 }
