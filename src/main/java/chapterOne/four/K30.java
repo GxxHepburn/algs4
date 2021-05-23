@@ -4,6 +4,11 @@ import chapterone.three.Stack;
 import chapterone.three.Steque;
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * 均摊非常数
+ * @author gxx
+ *
+ */
 public class K30 {
 
 	public static void main(String[] args) {
