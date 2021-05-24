@@ -19,18 +19,19 @@ import edu.princeton.cs.algs4.Stopwatch;
 public class K40 {
 
 	public static void main(String[] args) {
+		int pin = 100;
 		double prev;
 		double prevSum = 0;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < pin; i++) {
 			prevSum += DoublingTest.timerTrial(125);
 		}
-		prev = prevSum / 5;
+		prev = prevSum / pin;
 		for (int N = 250; true; N += N) {
 			double timeSum = 0;
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < pin; i++) {
 				timeSum += timerTrial(N);
 			}
-			double time = timeSum / 5;
+			double time = timeSum / pin;
 			StdOut.printf("%6d %7.1f ", N, time);
 			StdOut.printf("%5.1f\n", time/prev);
 			prev = time;
