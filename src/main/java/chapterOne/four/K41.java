@@ -55,7 +55,7 @@ public class K41 {
 
         StdOut.printf("%6s %7s %5s\n", "N", "Time", "Ratio");
 
-        for(int n = 250; n <= 8000; n += n) {
+        for(int n = 256; n <= 8192; n += n) {
             double time = timerTrial(n, sumMethod);
             StdOut.printf("%6d %7.1f ", n, time);
             StdOut.printf("%5.1f\n", time / previousTime);
