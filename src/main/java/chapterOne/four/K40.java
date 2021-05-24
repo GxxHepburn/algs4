@@ -19,7 +19,7 @@ import edu.princeton.cs.algs4.Stopwatch;
 public class K40 {
 
 	public static void main(String[] args) {
-		int pin = 100;
+		int pin = 1;
 		double prev;
 		double prevSum = 0;
 		for (int i = 0; i < pin; i++) {
