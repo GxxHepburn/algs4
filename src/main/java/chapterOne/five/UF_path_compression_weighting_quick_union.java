@@ -8,6 +8,8 @@ public class UF_path_compression_weighting_quick_union {
 	private int[] id;
 	private int[] sz;
 	private int count;
+	
+	private int cnt;
 
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
@@ -40,18 +42,24 @@ public class UF_path_compression_weighting_quick_union {
 	}
 	
 	public boolean connected(int p, int q) {
+		cnt = 0;
 		return find(p) == find(q);
 	}
 	
 	public int find(int p) {
 		int q = p;
+		cnt++;
 		while (p != id[p]) {
+			cnt++;
 			p = id[p];
 		}
 		int root = p;
 		int temp;
+		cnt++;
 		while (q != id[q]) {
+			cnt++;
 			temp = id[q];
+			cnt++;
 			id[q] = root;
 			q = temp;
 		}
@@ -59,18 +67,28 @@ public class UF_path_compression_weighting_quick_union {
 	}
 	
 	public void union(int p, int q) {
+		cnt = 0;
 		int i = find(p);
 		int j = find(q);
 		if (i == j) {
 			return;
 		}
+		cnt++;
+		cnt++;
 		if (sz[i] < sz[j]) {
+			cnt++;
 			id[i] = j;
+			cnt++;
+			cnt++;
 			sz[j] += sz[i];
 		} else {
+			cnt++;
 			id[j] = i;
+			cnt++;
+			cnt++;
 			sz[i] += sz[j];
 		} 
+		StdOut.println(getCnt());
 		count--;
 	}
 
@@ -96,5 +114,13 @@ public class UF_path_compression_weighting_quick_union {
 
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 }
