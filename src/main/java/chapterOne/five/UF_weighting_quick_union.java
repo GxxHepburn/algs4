@@ -8,6 +8,8 @@ public class UF_weighting_quick_union {
 	private int[] id;
 	private int[] sz;
 	private int count;
+	// K3
+	private int cnt;
 
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
@@ -40,11 +42,17 @@ public class UF_weighting_quick_union {
 	}
 	
 	public boolean connected(int p, int q) {
+		//	K3
+		cnt = 0;
 		return find(p) == find(q);
 	}
 	
 	public int find(int p) {
+		//	K3
+		cnt++;
 		while (p != id[p]) {
+			//	K3
+			cnt++;
 			p = id[p];
 		}
 		return p;
@@ -56,13 +64,60 @@ public class UF_weighting_quick_union {
 		if (i == j) {
 			return;
 		}
+		//	K3
+		cnt++;
+		cnt++;
 		if (sz[i] < sz[j]) {
 			id[i] = j;
 			sz[j] += sz[i];
+			//	K3
+			cnt++;
+			cnt++;
+			cnt++;
 		} else {
 			id[j] = i;
 			sz[i] += sz[j];
+			//	K3
+			cnt++;
+			cnt++;
+			cnt++;
 		} 
+		for (int t : id) {
+			StdOut.print(t + " ");
+		}
+		StdOut.println("cnt: " + cnt);
 		count--;
+	}
+
+	public int[] getId() {
+		return id;
+	}
+
+	public void setId(int[] id) {
+		this.id = id;
+	}
+
+	public int[] getSz() {
+		return sz;
+	}
+
+	public void setSz(int[] sz) {
+		this.sz = sz;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 }

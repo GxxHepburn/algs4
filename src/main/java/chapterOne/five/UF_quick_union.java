@@ -37,6 +37,8 @@ public class UF_quick_union {
 	}
 	
 	public boolean connected(int p, int q) {
+		//	K2
+		cnt = 0;
 		return find(p) == find(q);
 	}
 	
@@ -52,8 +54,6 @@ public class UF_quick_union {
 	}
 	
 	public void union(int p, int q) {
-		// K2 
-		cnt = 0;
 		int pRoot = find(p);
 		int qRoot = find(q);
 		if (pRoot == qRoot) {
