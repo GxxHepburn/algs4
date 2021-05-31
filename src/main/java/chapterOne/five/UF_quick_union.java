@@ -21,6 +21,8 @@ public class UF_quick_union {
 	
 	private int[] id;
 	private int count;
+	// K2 
+	private int cnt;
 	
 	public UF_quick_union(int N) {
 		count = N;
@@ -39,19 +41,48 @@ public class UF_quick_union {
 	}
 	
 	public int find(int p) {
+		// K2 
+		cnt++;
 		while (p != id[p]) {
+			// K2 
+			cnt++;
 			p = id[p];
 		}
 		return p;
 	}
 	
 	public void union(int p, int q) {
+		// K2 
+		cnt = 0;
 		int pRoot = find(p);
 		int qRoot = find(q);
 		if (pRoot == qRoot) {
 			return;
 		}
+		// K2 
+		cnt++;
 		id[pRoot] = qRoot;
+		// K2 
+		for (int i : id) {
+			StdOut.print(i + " ");
+		}
+		StdOut.println("cnt: " + cnt);
 		count--;
+	}
+
+	public int[] getId() {
+		return id;
+	}
+
+	public void setId(int[] id) {
+		this.id = id;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
