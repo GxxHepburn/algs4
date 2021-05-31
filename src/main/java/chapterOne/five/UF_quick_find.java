@@ -29,18 +29,35 @@ public class UF_quick_find {
 	}
 	
 	public void union(int p, int q) {
+		// K1 
+		int cnt = 0;
+		
 		int pID = find(p);
+		// K1 
+		cnt++;
+		
 		int qID = find(q);
+		// K1 
+		cnt++;
 		
 		if (pID == qID) {
 			return;
 		}
 		
 		for (int i = 0; i < id.length; i++) {
+			// K1 
+			cnt++;
 			if (id[i] == pID) {
+				// K1 
+				cnt++;
 				id[i] = qID;
 			}
 		}
+		// K1 
+		for (int i : id) {
+			StdOut.print(i + " ");
+		}
+		StdOut.println("cnt: " + cnt);
 		count--;
 	}
 	
@@ -56,5 +73,21 @@ public class UF_quick_find {
 			uf.union(p, q);
 		}
 		StdOut.println(uf.count);
+	}
+
+	public int[] getId() {
+		return id;
+	}
+
+	public void setId(int[] id) {
+		this.id = id;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
