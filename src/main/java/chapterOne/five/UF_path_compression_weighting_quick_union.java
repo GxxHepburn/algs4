@@ -73,4 +73,28 @@ public class UF_path_compression_weighting_quick_union {
 		} 
 		count--;
 	}
+
+	public int[] getId() {
+		return id;
+	}
+
+	public void setId(int[] id) {
+		this.id = id;
+	}
+
+	public int[] getSz() {
+		return sz;
+	}
+
+	public void setSz(int[] sz) {
+		this.sz = sz;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 }
