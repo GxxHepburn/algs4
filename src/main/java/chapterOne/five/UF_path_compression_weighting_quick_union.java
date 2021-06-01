@@ -88,7 +88,7 @@ public class UF_path_compression_weighting_quick_union {
 			cnt++;
 			sz[i] += sz[j];
 		} 
-		StdOut.println(getCnt());
+//		StdOut.println(getCnt());
 		count--;
 	}
 
