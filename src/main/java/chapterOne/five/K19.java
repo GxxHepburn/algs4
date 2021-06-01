@@ -18,7 +18,6 @@ public class K19 {
 			int q = connection.q;
 			if (uf.connected(p, q)) {
 				totalcost += uf.getCnt();
-				StdOut.println(uf.getCount());
 				i++;
 				UF_quick_union.plot(i, uf.getCnt(), totalcost);
 				continue;
