@@ -3,7 +3,7 @@ package chapterone.five;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UF_path_compression_weighting_quick_union {
+public class UF_path_compression_weighting_quick_union implements UF {
 
 	private int[] id;
 	private int[] sz;
