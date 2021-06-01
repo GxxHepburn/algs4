@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UF_quick_union {
+public class UF_quick_union implements UF {
 
 	public static void main(String[] args) {
 		int N = StdIn.readInt();
@@ -74,10 +74,10 @@ public class UF_quick_union {
 		cnt++;
 		id[pRoot] = qRoot;
 		// K2 
-		for (int i : id) {
-			StdOut.print(i + " ");
-		}
-		StdOut.println("cnt: " + cnt);
+//		for (int i : id) {
+//			StdOut.print(i + " ");
+//		}
+//		StdOut.println("cnt: " + cnt);
 		count--;
 	}
 

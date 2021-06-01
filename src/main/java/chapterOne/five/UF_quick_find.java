@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UF_quick_find {
+public class UF_quick_find implements UF {
 
 	private int[] id;
 	private int count;
@@ -55,10 +55,10 @@ public class UF_quick_find {
 			}
 		}
 		// K1 
-		for (int i : id) {
-			StdOut.print(i + " ");
-		}
-		StdOut.println("cnt: " + cnt);
+//		for (int i : id) {
+//			StdOut.print(i + " ");
+//		}
+//		StdOut.println("cnt: " + cnt);
 		count--;
 	}
 	

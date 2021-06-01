@@ -11,7 +11,12 @@ public class K17 {
 	}
 	
 	public static int count(int N) {
-		UF_weighting_quick_union uf = new UF_weighting_quick_union(N);
+//		UF_weighting_quick_union uf = new UF_weighting_quick_union(N);
+		//	K22
+//		UF_quick_union uf = new UF_quick_union(N);
+		UF_quick_find uf = new UF_quick_find(N);
+		
+		
 		int left = uf.count();
 		int total = 0;
 		while (left > 1) {

@@ -83,15 +83,15 @@ public class UF_weighting_quick_union {
 			cnt++;
 		} 
 		// K3
-		for (int t : id) {
-			StdOut.print(t + " ");
-		}
+//		for (int t : id) {
+//			StdOut.print(t + " ");
+//		}
 		// K4
-		StdOut.print(" | sz: ");
-		for (int t : sz) {
-			StdOut.print(t + " ");
-		}
-		StdOut.println("cnt: " + cnt);
+//		StdOut.print(" | sz: ");
+//		for (int t : sz) {
+//			StdOut.print(t + " ");
+//		}
+//		StdOut.println("cnt: " + cnt);
 		count--;
 	}
 
