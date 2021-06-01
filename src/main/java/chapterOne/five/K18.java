@@ -7,14 +7,14 @@ public class K18 {
 
 	public static void main(String[] args) {
 		int numberOfSites = 10;
-		Connection[] connections = generate(numberOfSites);
+		Connection[] connections = new K18().generate(numberOfSites);
 		StdOut.println("Connections");
 		for (Connection connection : connections) {
 			StdOut.println(connection.p + " - " + connection.q);
 		}
 	}
 	
-	public static class Connection {
+	public class Connection {
 		int p;
 		int q;
 		
@@ -24,7 +24,7 @@ public class K18 {
 		}
 	}
 	
-	public static Connection[] generate(int numberOfSites) {
+	public Connection[] generate(int numberOfSites) {
 		RandomBag<Connection> randomBag = new RandomBag<Connection>();
 		
 		for (int i = 0; i < numberOfSites; i++) {

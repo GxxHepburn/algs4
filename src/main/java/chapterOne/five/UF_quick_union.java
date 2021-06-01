@@ -97,14 +97,22 @@ public class UF_quick_union {
 		this.count = count;
 	}
 	
-	private static void initStdDraw() {
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		UF_quick_union.cnt = cnt;
+	}
+
+	public static void initStdDraw() {
 		StdDraw.setXscale(0, 900);
 		StdDraw.setYscale(0, 1300);
 		StdDraw.setPenRadius(0.002);
 		StdDraw.textLeft(1, 625, "625");
 	}
 	
-	private static void plot(int i, int cost, int totalcost) {
+	public static void plot(int i, int cost, int totalcost) {
 		double avg = (totalcost * 1.0) / i;
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.point(i, cost);
